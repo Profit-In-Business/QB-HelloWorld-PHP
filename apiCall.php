@@ -29,8 +29,14 @@ function makeAPICall()
      */
     $dataService->updateOAuth2Token($accessToken);
     $companyInfo = $dataService->getCompanyInfo();
+    /*
+     * Example API call to QB
+     */
+    $query = "SELECT * FROM Account";
+    $accountInfo = $dataService->Query($query);
     $address = "QBO API call Successful!! Response Company name: " . $companyInfo->CompanyName . " Company Address: " . $companyInfo->CompanyAddr->Line1 . " " . $companyInfo->CompanyAddr->City . " " . $companyInfo->CompanyAddr->PostalCode;
-    print_r($address);
+    //print_r($address);
+    print_r($accountInfo);
     return $companyInfo;
 }
 
